@@ -7,6 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0a0a0a" id="theme-color-meta" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Kitap Kutusu" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
 </head>
 <body>
 
@@ -271,5 +277,23 @@
 <div id="toast" class="toast hidden"></div>
 
 <script type="module" src="app.js"></script>
+<script>
+  // PWA Service Worker kaydı
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/bybookcase/service-worker.js")
+        .then(() => console.log("SW kayıtlı ✓"))
+        .catch(e => console.log("SW hatası:", e));
+    });
+  }
+
+  // Tema değişince theme-color meta'yı da güncelle
+  const themeColorMeta = document.getElementById("theme-color-meta");
+  const observer = new MutationObserver(() => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    themeColorMeta.setAttribute("content", isDark ? "#0a0a0a" : "#f5f3ef");
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>
 </body>
 </html>
