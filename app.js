@@ -25,20 +25,15 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ======================================================
-// 🔴 BURAYA KENDİ FIREBASE YAPILANDIRMANIZI GİRİN
-// Firebase Console → Project Settings → General →
-// Your apps → Web → Config snippet'ini buraya yapıştırın
-// ======================================================
 const firebaseConfig = {
-  apiKey: "BURAYA_API_KEY",
-  authDomain: "BURAYA_AUTH_DOMAIN",
-  projectId: "BURAYA_PROJECT_ID",
-  storageBucket: "BURAYA_STORAGE_BUCKET",
-  messagingSenderId: "BURAYA_MESSAGING_SENDER_ID",
-  appId: "BURAYA_APP_ID"
+  apiKey: "AIzaSyDfm1ANzzvyZGFiAksYlOzkzvbqg8KJnCU",
+  authDomain: "mybookcase-a277f.firebaseapp.com",
+  projectId: "mybookcase-a277f",
+  storageBucket: "mybookcase-a277f.firebasestorage.app",
+  messagingSenderId: "313022286313",
+  appId: "1:313022286313:web:eb1eff757e42cca70e6378",
+  measurementId: "G-WTR8J98FW2"
 };
-// ======================================================
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
