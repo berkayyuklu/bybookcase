@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitap Arşivim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dark { background-color: #0a0a0a; color: white; }
+        .light { background-color: white; color: black; }
+        .border-custom { border: 1px solid currentColor; }
+    </style>
+</head>
+<body class="light transition-colors duration-300">
+    <nav class="p-6 flex justify-between border-b border-custom">
+        <h1 class="text-2xl font-bold uppercase tracking-tighter">Kitap Loglarim</h1>
+        <button id="themeToggle" class="border-custom px-4 py-1 uppercase text-sm">Mod Değiştir</button>
+    </nav>
+
+    <main class="p-6">
+        <div id="auth-section" class="mb-8">
+            <button id="loginBtn" class="bg-black text-white dark:bg-white dark:text-black px-6 py-2 uppercase font-bold">Google ile Bağlan</button>
+        </div>
+
+        <!-- Kitap Ekleme Bölümü -->
+        <section class="mb-12 border-custom p-4">
+            <h2 class="mb-4 font-bold uppercase">Yeni Kitap Ekle</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="bookTitle" placeholder="Kitap Adı" class="bg-transparent border-custom p-2 outline-none">
+                <input type="text" id="bookAuthor" placeholder="Yazar" class="bg-transparent border-custom p-2 outline-none">
+                <textarea id="bookNotes" placeholder="Çıkarımların..." class="bg-transparent border-custom p-2 md:col-span-2 outline-none h-32"></textarea>
+                <input type="number" id="bookRating" max="5" min="1" placeholder="Puan (1-5)" class="bg-transparent border-custom p-2 outline-none">
+                <button id="saveBtn" class="bg-black text-white dark:bg-white dark:text-black p-2 uppercase font-bold">Kaydet</button>
+            </div>
+        </section>
+
+        <!-- Liste Bölümü -->
+        <div id="bookList" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Kitaplar buraya gelecek -->
+        </div>
+    </main>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
